@@ -11,10 +11,10 @@ namespace MedicineAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MedicinesController : ControllerBase
+    public class DrUsersController : ControllerBase
     {
         private readonly MyDbContext _context;
-        public MedicinesController(MyDbContext context)
+        public DrUsersController(MyDbContext context)
         {
             _context = context;
         }
@@ -24,7 +24,7 @@ namespace MedicineAPI.Controllers
         {
             try
             {
-                var list = _context.medicines.ToList();
+                var list = _context.drUsers.ToList();
                 return Ok(list);
             }
             catch
@@ -39,7 +39,7 @@ namespace MedicineAPI.Controllers
         {
             try
             {
-                var list = _context.medicines.SingleOrDefault(x => x.idMedicine == Guid.Parse(id));
+                var list = _context.drUsers.SingleOrDefault(x => x.idDrUser == Guid.Parse(id));
                 if (list != null)
                 {
                     return Ok(list);
@@ -57,15 +57,17 @@ namespace MedicineAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddNew(MedicineModel model)
+        public IActionResult AddNew(DrUserModel model)
         {
             try
             {
-                var list = new Medicine
+                var list = new DrUser
                 {
-                    nameMedicine = model.nameMedicine,
-                    descriptionMedicine = model.descriptionMedicine,
-                    idType = model.idType,
+                    nameDrUser = model.nameDrUser,
+                    passwordDrUser = model.passwordDrUser,
+                    fullNameDrUser = model.fullNameDrUser,
+                    emailDrUser = model.emailDrUser,
+                    phoneDrUser = model.phoneDrUser,
                 };
                 _context.Add(list);
                 _context.SaveChanges();
@@ -79,16 +81,18 @@ namespace MedicineAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateById(string id, MedicineModel model)
+        public IActionResult UpdateById(string id, DrUserModel model)
         {
             try
             {
-                var list = _context.medicines.SingleOrDefault(x => x.idMedicine == Guid.Parse(id));
-                if(list != null)
+                var list = _context.drUsers.SingleOrDefault(x => x.idDrUser == Guid.Parse(id));
+                if (list != null)
                 {
-                    list.nameMedicine = model.nameMedicine;
-                    list.descriptionMedicine = model.descriptionMedicine;
-                    list.idType = model.idType;
+                    list.nameDrUser = model.nameDrUser;
+                    list.passwordDrUser = model.passwordDrUser;
+                    list.fullNameDrUser = model.fullNameDrUser;
+                    list.emailDrUser = model.emailDrUser;
+                    list.phoneDrUser = model.phoneDrUser;
                     _context.SaveChanges();
                     return NoContent();
                 }
@@ -108,7 +112,7 @@ namespace MedicineAPI.Controllers
         {
             try
             {
-                var list = _context.medicines.SingleOrDefault(x => x.idMedicine == Guid.Parse(id));
+                var list = _context.drUsers.SingleOrDefault(x => x.idDrUser == Guid.Parse(id));
                 if (list != null)
                 {
                     _context.Remove(list);

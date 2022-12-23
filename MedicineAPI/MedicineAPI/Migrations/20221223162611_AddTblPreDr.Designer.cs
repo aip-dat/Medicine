@@ -4,14 +4,16 @@ using MedicineAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MedicineAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221223162611_AddTblPreDr")]
+    partial class AddTblPreDr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,9 +87,6 @@ namespace MedicineAPI.Migrations
                     b.Property<Guid?>("drUseridDrUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("hourPrescription")
-                        .HasColumnType("int");
-
                     b.Property<Guid>("idDrUser")
                         .HasColumnType("uniqueidentifier");
 
@@ -96,9 +95,6 @@ namespace MedicineAPI.Migrations
 
                     b.Property<Guid?>("medicineidMedicine")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("minutePrescription")
-                        .HasColumnType("int");
 
                     b.Property<double>("quantityPrescription")
                         .HasColumnType("float");
@@ -109,7 +105,7 @@ namespace MedicineAPI.Migrations
 
                     b.HasIndex("medicineidMedicine");
 
-                    b.ToTable("Prescription");
+                    b.ToTable("prescriptions");
                 });
 
             modelBuilder.Entity("MedicineAPI.Data.Type", b =>

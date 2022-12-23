@@ -16,10 +16,15 @@ namespace MedicineAPI.Data
         [MaxLength(255)]
         public string nameMedicine { get; set; }
         public string descriptionMedicine { get; set; }
-        public double numberMedicine { get; set; }
 
         public int? idType { get; set; }
+
+
+        //realtionship
+
         [ForeignKey("idType")]
         public Type type { get; set; }
+
+        public virtual ICollection<Prescription> prescriptions { get; set; }
     }
 }

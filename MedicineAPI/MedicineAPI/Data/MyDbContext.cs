@@ -14,6 +14,8 @@ namespace MedicineAPI.Data
         public DbSet<Medicine> medicines { get; set; }
         public DbSet<Type> types { get; set; }
         public DbSet<User> users  { get; set; }
+        public DbSet<Prescription> prescriptions  { get; set; }
+        public DbSet<DrUser> drUsers  { get; set; }
         #endregion
     }
 }

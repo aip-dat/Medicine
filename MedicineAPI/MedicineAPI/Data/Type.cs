@@ -16,6 +16,7 @@ namespace MedicineAPI.Data
         [MaxLength(50)]
         public string nameType { get; set; }
 
+        //realtionship
         public virtual ICollection<Medicine> Medicines { get; set; }
     }
 }
