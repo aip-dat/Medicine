@@ -9,6 +9,5 @@ namespace MedicineAPI.Models
     {
         public Guid idDrUser { get; set; }
 
-        public DateTime datePrescription { get; set; }
     }
 }

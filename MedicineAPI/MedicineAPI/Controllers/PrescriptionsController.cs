@@ -64,8 +64,8 @@ namespace MedicineAPI.Controllers
                 var list = new Prescription
                 {
                     idDrUser = model.idDrUser,
-                    datePrescription = model.datePrescription,
-                };
+                    datePrescription = DateTime.Now,
+            };
                 _context.Add(list);
                 _context.SaveChanges();
                 return Ok(list);
@@ -86,7 +86,7 @@ namespace MedicineAPI.Controllers
                 if (list != null)
                 {
                     list.idDrUser = model.idDrUser;
-                    list.datePrescription = model.datePrescription;
+                    list.datePrescription = DateTime.Now;
                     _context.SaveChanges();
                     return NoContent();
                 }
