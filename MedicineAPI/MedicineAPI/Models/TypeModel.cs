@@ -8,8 +8,7 @@ namespace MedicineAPI.Models
 {
     public class TypeModel
     {
-        [Required]
-        [MaxLength(50)]
+       
         public string nameType { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,12 +9,11 @@ using System.Threading.Tasks;
 namespace MedicineAPI.Data
 {
     [Table("Medicine")]
+    [Keyless]
     public class Medicine
     {
-        [Key]
         public Guid idMedicine { get; set; }
-        [Required]
-        [MaxLength(255)]
+       
         public string nameMedicine { get; set; }
         public string descriptionMedicine { get; set; }
 
@@ -22,9 +22,8 @@ namespace MedicineAPI.Data
 
         //realtionship
 
-        [ForeignKey("idType")]
-        public Type type { get; set; }
+        //public Type type { get; set; }
 
-        public virtual ICollection<Prescription> prescriptions { get; set; }
+        //public virtual ICollection<Prescription> prescriptions { get; set; }
     }
 }

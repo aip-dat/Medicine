@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,15 +9,14 @@ using System.Threading.Tasks;
 namespace MedicineAPI.Data
 {
     [Table("Type")]
+    [Keyless]
     public class Type
     {
-        [Key]
         public int idType { get; set; }
-        [Required]
-        [MaxLength(50)]
+     
         public string nameType { get; set; }
 
         //realtionship
-        public virtual ICollection<Medicine> Medicines { get; set; }
+        //public virtual ICollection<Medicine> Medicines { get; set; }
     }
 }
