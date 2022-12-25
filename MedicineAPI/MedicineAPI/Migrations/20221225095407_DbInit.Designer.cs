@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicineAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20221225093133_DbInit")]
+    [Migration("20221225095407_DbInit")]
     partial class DbInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,14 +23,15 @@ namespace MedicineAPI.Migrations
 
             modelBuilder.Entity("MedicineAPI.Data.DetailPrescription", b =>
                 {
+                    b.Property<Guid>("idDetailPrescription")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("contentDetailPrescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("hourDetailPrescription")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("idDetailPrescription")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("idMedicine")
                         .HasColumnType("uniqueidentifier");
@@ -44,19 +45,22 @@ namespace MedicineAPI.Migrations
                     b.Property<double>("quantityDetailPrescription")
                         .HasColumnType("float");
 
+                    b.HasKey("idDetailPrescription");
+
                     b.ToTable("DetailPrescription");
                 });
 
             modelBuilder.Entity("MedicineAPI.Data.DrUser", b =>
                 {
+                    b.Property<Guid>("idDrUser")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("emailDrUser")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("fullNameDrUser")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("idDrUser")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("nameDrUser")
                         .HasColumnType("nvarchar(max)");
@@ -67,16 +71,19 @@ namespace MedicineAPI.Migrations
                     b.Property<string>("phoneDrUser")
                         .HasColumnType("nvarchar(max)");
 
+                    b.HasKey("idDrUser");
+
                     b.ToTable("DrUser");
                 });
 
             modelBuilder.Entity("MedicineAPI.Data.Medicine", b =>
                 {
+                    b.Property<Guid>("idMedicine")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("descriptionMedicine")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("idMedicine")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("idType")
                         .HasColumnType("int");
@@ -84,19 +91,24 @@ namespace MedicineAPI.Migrations
                     b.Property<string>("nameMedicine")
                         .HasColumnType("nvarchar(max)");
 
+                    b.HasKey("idMedicine");
+
                     b.ToTable("Medicine");
                 });
 
             modelBuilder.Entity("MedicineAPI.Data.Prescription", b =>
                 {
+                    b.Property<Guid>("idPrescription")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("datePrescription")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("idDrUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("idPrescription")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasKey("idPrescription");
 
                     b.ToTable("Prescription");
                 });
@@ -104,30 +116,37 @@ namespace MedicineAPI.Migrations
             modelBuilder.Entity("MedicineAPI.Data.Type", b =>
                 {
                     b.Property<int>("idType")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("nameType")
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("idType");
 
                     b.ToTable("Type");
                 });
 
             modelBuilder.Entity("MedicineAPI.Data.User", b =>
                 {
+                    b.Property<Guid>("idUser")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("emailUser")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("fullNameUser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("idUser")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("nameUser")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("passwordUser")
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("idUser");
 
                     b.ToTable("User");
                 });

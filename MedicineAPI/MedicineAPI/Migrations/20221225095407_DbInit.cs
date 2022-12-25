@@ -21,6 +21,7 @@ namespace MedicineAPI.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_DetailPrescription", x => x.idDetailPrescription);
                 });
 
             migrationBuilder.CreateTable(
@@ -36,6 +37,7 @@ namespace MedicineAPI.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_DrUser", x => x.idDrUser);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,6 +51,7 @@ namespace MedicineAPI.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_Medicine", x => x.idMedicine);
                 });
 
             migrationBuilder.CreateTable(
@@ -61,17 +64,20 @@ namespace MedicineAPI.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_Prescription", x => x.idPrescription);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Type",
                 columns: table => new
                 {
-                    idType = table.Column<int>(type: "int", nullable: false),
+                    idType = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     nameType = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_Type", x => x.idType);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,6 +92,7 @@ namespace MedicineAPI.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_User", x => x.idUser);
                 });
         }
 

@@ -61,7 +61,7 @@ namespace MedicineAPI.Controllers
                 };
                 _context.Add(list);
                 _context.SaveChanges();
-                return StatusCode(StatusCodes.Status201Created, list);
+                return Ok(list);
             }
             catch
             {

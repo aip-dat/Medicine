@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace MedicineAPI.Data
 {
     [Table("DrUser")]
-    [Keyless]
     public class DrUser
     {
+        [Key]
         public Guid idDrUser { get; set; }
 
         
