@@ -21,6 +21,7 @@ namespace MedicineAPI.Data
         public string fullNameDrUser { get; set; }
         public string emailDrUser { get; set; }
         public string phoneDrUser { get; set; }
+        public string imageUrlDrUser { get; set; }
 
         //realtionship
         //public virtual ICollection<Prescription> prescriptions { get; set; }

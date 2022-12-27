@@ -67,6 +67,7 @@ namespace MedicineAPI.Controllers
                     passwordUser = model.passwordUser,
                     fullNameUser = model.fullNameUser,
                     emailUser = model.emailUser,
+                    imageUrlUser = model.imageUrlUser,
                 };
                 _context.Add(list);
                 _context.SaveChanges();
@@ -91,6 +92,7 @@ namespace MedicineAPI.Controllers
                     list.passwordUser = model.passwordUser;
                     list.fullNameUser = model.fullNameUser;
                     list.emailUser = model.emailUser;
+                    list.imageUrlUser = model.imageUrlUser;
                     _context.SaveChanges();
                     return NoContent();
                 }

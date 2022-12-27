@@ -16,6 +16,7 @@ namespace MedicineAPI.Data
        
         public string nameMedicine { get; set; }
         public string descriptionMedicine { get; set; }
+        public string imageUrlMedicine { get; set; }
 
         public int? idType { get; set; }
 

@@ -11,5 +11,6 @@ namespace MedicineAPI.Models
         public string passwordUser { get; set; }
         public string fullNameUser { get; set; }
         public string emailUser { get; set; }
+        public string imageUrlUser { get; set; }
     }
 }
