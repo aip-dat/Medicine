@@ -65,6 +65,7 @@ namespace MedicineAPI.Controllers
                 {
                     nameMedicine = model.nameMedicine,
                     descriptionMedicine = model.descriptionMedicine,
+                    imageUrlMedicine = model.imageUrlMedicine,
                     idType = model.idType,
                 };
                 _context.Add(list);
@@ -88,6 +89,7 @@ namespace MedicineAPI.Controllers
                 {
                     list.nameMedicine = model.nameMedicine;
                     list.descriptionMedicine = model.descriptionMedicine;
+                    list.imageUrlMedicine = model.imageUrlMedicine;
                     list.idType = model.idType;
                     _context.SaveChanges();
                     return NoContent();
