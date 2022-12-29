@@ -1,0 +1,4 @@
+<app-header *ngIf="!(_router.url === '/dangnhap')" ></app-header>
+<app-sidebar *ngIf="!(_router.url === '/dangnhap')" ></app-sidebar>
+<router-outlet></router-outlet>
+<app-footer *ngIf="!(_router.url === '/dangnhap')" ></app-footer>

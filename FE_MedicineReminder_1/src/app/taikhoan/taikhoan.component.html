@@ -1,0 +1,43 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+     <h1>Tài khoản</h1>
+     <nav>
+        <ol class="breadcrumb">
+           <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+           <li class="breadcrumb-item active">Tài khoản</li>
+        </ol>
+     </nav>
+  </div>
+
+  <button (click)="init()" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Thêm
+  </button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tên tài khoản</th>
+        <th scope="col">Mật khẩu</th>
+        <th scope="col">Họ tên</th>
+        <th scope="col">Email</th>
+        <th scope="col">Điện thoại</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of datas">
+        <td>{{item.idDrUser}}</td>
+        <td>{{item.nameDrUser}}</td>
+        <td>{{item.passwordDrUser}}</td>
+        <td>{{item.fullNameDrUser}}</td>
+        <td>{{item.emailDrUser}}</td>
+        <td>{{item.phoneDrUser}}</td>
+
+        <td (click)="sua(item)" class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-edittaikhoan [data]="suadoi" (chinhsua)="capnhat($event)"></app-edittaikhoan>
+</main>

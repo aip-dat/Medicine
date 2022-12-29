@@ -1,0 +1,44 @@
+<div *ngIf="data">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa thông tin</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+              <label>Tên tài khoản</label>
+              <input type="text" class="form-control" [(ngModel)]="data.nameDrUser">
+            </div>
+
+            <div class="mb-3">
+              <label>Mật khẩu</label>
+              <input type="text" class="form-control" [(ngModel)]="data.passwordDrUser">
+            </div>
+
+            <div class="mb-3">
+              <label>Họ tên</label>
+              <input type="text" class="form-control" [(ngModel)]="data.fullNameDrUser">
+            </div>
+
+            <div class="mb-3">
+              <label>Email</label>
+              <input type="text" class="form-control" [(ngModel)]="data.emailDrUser">
+            </div>
+
+            <div class="mb-3">
+              <label>Điện thoại</label>
+              <input type="text" class="form-control" [(ngModel)]="data.phoneDrUser">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="them(data)" *ngIf="!data.idDrUser" class="btn btn-primary">Thêm</button>
+          <button (click)="xoa(data)" *ngIf="data.idDrUser" class="btn btn-danger">Xóa</button>
+          <button (click)="sua(data)" *ngIf="data.idDrUser" class="btn btn-primary">Sửa</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

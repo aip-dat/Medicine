@@ -1,0 +1,36 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+     <h1>Đơn vị (loại)</h1>
+     <nav>
+        <ol class="breadcrumb">
+           <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+           <li class="breadcrumb-item active">Đơn vị</li>
+        </ol>
+     </nav>
+  </div>
+
+  <button (click)="init()" type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Thêm
+  </button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Mã đơn vị</th>
+        <th scope="col">Tên đơn vị</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of datas">
+        <td>{{item.idType}}</td>
+        <td>{{item.nameType}}</td>
+
+        <td (click)="sua(item)" class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-editdonvi [data]="suadoi" (chinhsua)="capnhat($event)"></app-editdonvi>
+</main>
